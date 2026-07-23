@@ -12,16 +12,21 @@ async def send_to_channels(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if update.message and update.message.text:
         original = update.message.text
 
-        formatted = f"""🔥 OFFER UPDATE 🔥
+        formatted = f"""🔥🔥 HOT DEAL ALERT 🔥🔥
 
-{original}
+🛍️ Product : {product}
 
-━━━━━━━━━━━━━━
-🛒 Best Deals & Offers
-📢 Join: @smartdealsandoffers
+💸 Offer Price : {price}
 
-⚡ Hurry! Limited Time Offer
-━━━━━━━━━━━━━━
+🔗 Buy Now:
+{link}
+
+⚡ Hurry! Limited-Time Deal
+
+━━━━━━━━━━━━━━━━━━
+📢 Join @smartdealsandoffers
+❤️ Share with Friends
+━━━━━━━━━━━━━━━━━━
 """
 
         for channel in CHANNELS:
