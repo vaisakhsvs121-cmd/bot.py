@@ -10,15 +10,27 @@ CHANNELS = [
 
 async def send_to_channels(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if update.message and update.message.text:
-        text = update.message.text
+        original = update.message.text
+
+        formatted = f"""🔥 OFFER UPDATE 🔥
+
+{original}
+
+━━━━━━━━━━━━━━
+🛒 Best Deals & Offers
+📢 Join: @smartdealsandoffers
+
+⚡ Hurry! Limited Time Offer
+━━━━━━━━━━━━━━
+"""
 
         for channel in CHANNELS:
             await context.bot.send_message(
                 chat_id=channel,
-                text=text
+                text=formatted
             )
 
-        await update.message.reply_text("✅ Message sent to both channels!")
+        await update.message.reply_text("✅ Formatted message sent to both channels!")
 
 app = Application.builder().token(TOKEN).build()
 
