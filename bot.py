@@ -12,9 +12,9 @@ async def send_to_channels(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
         lines = update.message.text.strip().split("\n")
 
-product = lines[0] if len(lines) > 0 else ""
-price = lines[1] if len(lines) > 1 else ""
-link = "\n".join(lines[2:]) if len(lines) > 2 else ""
+        product = lines[0] if len(lines) > 0 else ""
+        price = lines[1] if len(lines) > 1 else ""
+        link = "\n".join(lines[2:]) if len(lines) > 2 else ""
 
         formatted = f"""🔥🔥 HOT DEAL ALERT 🔥🔥
 
@@ -36,7 +36,8 @@ link = "\n".join(lines[2:]) if len(lines) > 2 else ""
         for channel in CHANNELS:
             await context.bot.send_message(
                 chat_id=channel,
-                text=formatted
+                text=formatted,
+                disable_web_page_preview=False
             )
 
         await update.message.reply_text("✅ Deal posted successfully!")
