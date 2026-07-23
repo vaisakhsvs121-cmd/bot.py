@@ -37,7 +37,7 @@ async def send_to_channels(update: Update, context: ContextTypes.DEFAULT_TYPE):
             await context.bot.send_message(
                 chat_id=channel,
                 text=formatted,
-                disable_web_page_preview=False
+                disable_web_page_preview=True
             )
 
         await update.message.reply_text("✅ Deal posted successfully!")
