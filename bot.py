@@ -7,10 +7,14 @@ CHANNELS = [
     "@channel2577999",
     "@smartdealsandoffers"
 ]
-
 async def send_to_channels(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if update.message and update.message.text:
-        original = update.message.text
+
+        lines = update.message.text.strip().split("\n")
+
+        product = lines[0] if len(lines) > 0 else ""
+        price = lines[1] if len(lines) > 1 else ""
+        link = lines[2] if len(lines) > 2 else ""
 
         formatted = f"""🔥🔥 HOT DEAL ALERT 🔥🔥
 
@@ -35,7 +39,7 @@ async def send_to_channels(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 text=formatted
             )
 
-        await update.message.reply_text("✅ Formatted message sent to both channels!")
+        await update.message.reply_text("✅ Deal posted successfully!")
 
 app = Application.builder().token(TOKEN).build()
 
