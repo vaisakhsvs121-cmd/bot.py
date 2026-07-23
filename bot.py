@@ -16,16 +16,12 @@ async def send_to_channels(update: Update, context: ContextTypes.DEFAULT_TYPE):
         price = lines[1] if len(lines) > 1 else ""
         link = "\n".join(lines[2:]) if len(lines) > 2 else ""
 
-        formatted = f"""🔥🔥 HOT DEAL ALERT 🔥🔥
-
-🛍️ Product : {product}
+        formatted = f"""🛍️ Product : {product}
 
 💸 Offer Price : {price}
 
 🔗 Buy Now:
 {link}
-
-⚡ Hurry! Limited-Time Deal
 
 ━━━━━━━━━━━━━━━━━━
 📢 Join @smartdealsandoffers
